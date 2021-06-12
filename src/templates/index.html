@@ -1,16 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Restaurant Apps Starter Project</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Delicious App</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,600,700,800" rel="stylesheet"
+        type="text/css">
+
 </head>
+
 <body>
-<h1>Restaurant Apps Starter Project</h1>
-<p>Hallo coders! Anda berhasil menjalankan starter project.</p>
-<p>Jangan lupa untuk menggunakan salah satu gambar yang berada pada ./images/heros sebagai background hero elemen</p>
-<img src="./images/heros/hero-image_1.jpg" width="450" alt="">
-<img src="./images/heros/hero-image_2.jpg" width="450" alt="">
-<img src="./images/heros/hero-image_3.jpg" width="450" alt="">
-<img src="./images/heros/hero-image_4.jpg" width="450" alt="">
+    <header class="header">
+        <div class="header__inner">
+            <img src="./images/logos/logo.svg" alt="Logo Delicious" class="header__logo">
+
+            <button type="button" id="hamburger">
+                <img src="./images/menu_bar.svg" alt="Menu Bar">
+            </button>
+            <nav id="drawer" class="nav">
+                <button type="button" id="closeHamburger">✖️</button>
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="/">
+                            Home
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#">
+                            Favorite
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="https://www.linkedin.com/in/aldhyyy" target="_blank">
+                            About Us
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <a href="#maincontent" class="skip-link">Menuju ke konten</a>
+
+    <div class="hero">
+        <div class="hero__inner">
+            <h1 class="hero__title">Delicious</h1>
+            <p class="hero__tagline">Resto & Cafe</p>
+        </div>
+    </div>
+    <div id="navBackground"></div>
+
+    <main id="maincontent">
+        <section class="best-pick" aria-label="Konten Utama">
+            <h1 class="best-pick__label">
+                <span>Best</span>
+                <span>Pick</span>
+            </h1>
+            <div class="posts" id="renderPosts">
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="copyright">
+            <p class="copyright__text" tabindex="0">
+                Copyright © 2021 - Delicious Apps
+            </p>
+        </div>
+    </footer>
+
 </body>
+
 </html>

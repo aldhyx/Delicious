@@ -1,0 +1,69 @@
+/*
+ * Resetter
+ */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    font-size: 12px;
+    color: #232323;
+    background-color: #fff;
+}
+
+main{
+    background: #F5F5F5;
+}
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background-color: #bf1722;
+    color: white;
+    padding: 8px;
+    z-index: 100;
+}
+/*
+ * Mobile First Technique
+ */
+
+/*
+ * Header
+ *
+ */
+@import './header';
+/* 
+* Navigation
+*/
+@import './navigation';
+/*
+* Jumbotron
+*/
+@import './jumbotron';
+/*
+* Posts
+*/
+@import './post';
+/*
+* Footer
+*/
+.copyright{
+    padding: 40px;
+    background-color: #f2f2f2;
+    &__text{
+        font-size: 12px;
+        text-align: center;
+        color: #5C5C5C;
+    }
+}

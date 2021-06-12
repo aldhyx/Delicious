@@ -1,0 +1,27 @@
+.header {
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.05);
+    background-color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 99;
+    width: 100%;
+
+    &__inner {
+        width: 100%;
+        padding: 16px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+@media screen and (min-width: 1200px) {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+    }
+
+    &__logo {
+        min-width: 110px;
+        object-fit: contain;
+    }
+
+}

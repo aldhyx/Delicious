@@ -29,10 +29,15 @@ main{
     position: absolute;
     top: -40px;
     left: 0;
-    background-color: #bf1722;
+    background-color: #15B7B9;
     color: white;
     padding: 8px;
     z-index: 100;
+    font-weight: 600;
+
+    &:focus{
+    top: 0px;
+    }
 }
 /*
  * Mobile First Technique

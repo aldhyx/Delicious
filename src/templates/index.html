@@ -13,7 +13,8 @@
 </head>
 
 <body>
-    <a href="#maincontent" class="skip-link">Menuju ke konten</a>
+    <!-- skip to content if user using tab in first load  -->
+    <a href="#maincontent" class="skip-link">Menuju ke konten utama</a>
 
     <header class="header">
         <div class="header__inner">
@@ -56,10 +57,10 @@
 
     <main id="maincontent">
         <section class="best-pick" aria-label="Konten Utama">
-            <h1 class="best-pick__label">
+            <h2 class="best-pick__label">
                 <span>Best</span>
                 <span>Pick</span>
-            </h1>
+            </h2>
             <div class="posts" id="renderPosts">
             </div>
         </section>

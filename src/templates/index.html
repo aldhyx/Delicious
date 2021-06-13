@@ -9,19 +9,23 @@
     <title>Delicious App</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,600,700,800" rel="stylesheet"
         type="text/css">
-
+    <script async src="https://kit.fontawesome.com/f5e4bb16ed.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
+    <a href="#maincontent" class="skip-link">Menuju ke konten</a>
+
     <header class="header">
         <div class="header__inner">
             <img src="./images/logos/logo.svg" alt="Logo Delicious" class="header__logo">
 
             <button type="button" id="hamburger">
-                <img src="./images/menu_bar.svg" alt="Menu Bar">
+                <i class="fas fa-bars fa-2x"></i>
             </button>
             <nav id="drawer" class="nav">
-                <button type="button" id="closeHamburger">✖️</button>
+                <button type="button" id="closeHamburger">
+                    <i class="fa fa-close fa-2x"></i>
+                </button>
                 <ul class="nav__list">
                     <li class="nav__item">
                         <a href="/">
@@ -42,8 +46,6 @@
             </nav>
         </div>
     </header>
-    <a href="#maincontent" class="skip-link">Menuju ke konten</a>
-
     <div class="hero">
         <div class="hero__inner">
             <h1 class="hero__title">Delicious</h1>

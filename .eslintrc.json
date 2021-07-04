@@ -14,5 +14,13 @@
     "rules": {
         "wrap-iife": ["error", "inside"],
         "no-console": "warn",
+        "no-underscore-dangle": "off",
+        "indent": "off",
+        "operator-linebreak": "warn",
+        "implicit-arrow-linebreak": "warn",
+        "no-param-reassign": "warn",
+        "no-return-assign": "warn",
+        "comma-dangle": "warn",
+        "object-curly-newline": "warn"
     }
 }

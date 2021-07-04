@@ -6,6 +6,7 @@ class DeliciousSources {
     const responseJson = await response.json();
     return responseJson.restaurants;
   }
+
   static async getDetail(id) {
     const response = await fetch(API.GET_DETAIL(id));
     const responseJson = await response.json();

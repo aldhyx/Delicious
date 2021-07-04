@@ -1,14 +1,14 @@
+/* eslint-disable comma-dangle */
 import CONFIG from '../../globals/config';
 
-const createRestaurantCatalogueTemplate = (restaurant) =>
-  `
+const createRestaurantCatalogueTemplate = (restaurant) => `
 <article class="post-item" tabindex="0" >
     <div class="post-item__header">
         <a href="/#/detail/${restaurant.id}">
             <img
             src="${
-              CONFIG.BASE_IMAGE_URL_MEDIUM + restaurant.pictureId ||
-              'https://picsum.photos/id/666/800/450?grayscale'
+              CONFIG.BASE_IMAGE_URL_MEDIUM + restaurant.pictureId
+              || 'https://picsum.photos/id/666/800/450?grayscale'
             }" 
             alt="${restaurant.name || ''}"
             class="post-item__thumbnail">
@@ -35,7 +35,7 @@ const createRestaurantCatalogueTemplate = (restaurant) =>
         <p class="post-item__description">
         ${
           restaurant.description
-            ? restaurant.description.substr(0, 300) + '...'
+            ? `${restaurant.description.substr(0, 300)}...`
             : ''
         }
         </p>
@@ -53,16 +53,17 @@ const createLoader = () => `
 const createRestaurantDetail = (restaurant) => `
 <section class="restaurant">
     <div class="restaurant-header">
-        <img src="${
-          CONFIG.BASE_IMAGE_URL_MEDIUM + restaurant.pictureId ||
-          'https://picsum.photos/id/666/800/450?grayscale'
-        }" alt="${restaurant.name}" class="restaurant__img"/>
-        <p class="restaurant__city">
-        ${restaurant.city}
-        </p>
-    </div>
-    <div class="restaurant-body">
-        <div class="restaurant-body__top">
+        <div class="class="restaurant-header__bottom">
+            <img src="${
+              CONFIG.BASE_IMAGE_URL_MEDIUM + restaurant.pictureId
+              || 'https://picsum.photos/id/666/800/450?grayscale'
+            }" alt="${restaurant.name}" class="restaurant__img"/>
+            <p class="restaurant__city">
+            ${restaurant.city}
+            </p>
+        </div>
+        
+        <div class="restaurant-header__top">
             <p class="restaurant__rating">
                 <span>⭐</span>
                 <span>${restaurant.rating} / 4</span>
@@ -72,35 +73,41 @@ const createRestaurantDetail = (restaurant) => `
                 <span>📍</span>
             </p>
         </div>
-        <article class="restaurant-body__bottom">
-            <h2 class="restaurant__title">${restaurant.name}</h2>
-            <p class="restaurant__desc">${restaurant.description}</p>
-        </article>
     </div>
+    <article class="restaurant-body">
+        <h2 class="restaurant__title">${restaurant.name}</h2>
+        <p class="restaurant__desc">${restaurant.description}</p>
+    </article>
 </section>
 
-<section class="restaurant-food">
-    <h3 class="section__title">
-        <span>🍜</span>
-        <span>Makanan Tersedia</span>
-    </h3>
-    <ul class="restaurant-lists">
-        ${restaurant.menus.foods
-          .map((any) => `<li class="restaurant-lists__item">${any.name}</li>`)
-          .join('')}
-    </ul>
-</section>
+<section class="restaurant-menu">
+    <section class="restaurant-food">
+        <h3 class="section__title">
+            <span>🍜</span>
+            <span>Makanan Tersedia</span>
+        </h3>
+        <ul class="restaurant-lists">
+            ${restaurant.menus.foods
+              .map(
+                (any) => `<li class="restaurant-lists__item">${any.name}</li>`
+              )
+              .join('')}
+        </ul>
+    </section>
 
-<section class="restaurant-drink">
-    <h3 class="section__title">
-        <span>🍹</span>
-        <span>Minuman Tersedia</span>
-    </h3>
-    <ul class="restaurant-lists">
-        ${restaurant.menus.drinks
-          .map((any) => `<li class="restaurant-lists__item">${any.name}</li>`)
-          .join('')}
-    </ul>
+    <section class="restaurant-drink">
+        <h3 class="section__title">
+            <span>🍹</span>
+            <span>Minuman Tersedia</span>
+        </h3>
+        <ul class="restaurant-lists">
+            ${restaurant.menus.drinks
+              .map(
+                (any) => `<li class="restaurant-lists__item">${any.name}</li>`
+              )
+              .join('')}
+        </ul>
+    </section>
 </section>
 `;
 

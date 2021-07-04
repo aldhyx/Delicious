@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import { createLoader } from '../views/templates/template-creator';
 
 const LoaderHelper = {

@@ -30,13 +30,7 @@ const Favorite = {
     }
 
     restaurants.map(
-      (any) =>
-        (containerMain.innerHTML += createRestaurantCatalogueTemplate(any))
-    );
-
-    console.log(
-      '🚀 ~ file: favorite.js ~ line 24 ~ afterRender ~ restaurants',
-      restaurants
+      (any) => (containerMain.innerHTML += createRestaurantCatalogueTemplate(any)),
     );
   },
 };

@@ -20,9 +20,9 @@ const createRestaurantCatalogueTemplate = (restaurant) =>
 
     <div class="post-item__body">
         <p class="post-item__rating">
-            <span>Rating:</span>
+            <span>⭐</span>
             <span>
-                ${restaurant.rating || '0'}/4
+                ${restaurant.rating || '0'} / 4
             </span>
         </p>
 

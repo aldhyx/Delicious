@@ -65,19 +65,24 @@
             right: -5px;
             background: #ACBA0A;
             border-radius: 0px 0px 0px 28px;
-            padding: 8px 8px 8px 26px;
+            padding: 12px 12px 12px 46px;
             color: #fff;
-            font-size: 10px;
+            font-size: 12px;
             font-weight: 500;
+            text-transform: uppercase;
         }
 
         &__rating {
             margin-top: 12px;
-            font-size: 10px;
+            font-size: 12px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
 
             span {
                 &:nth-child(1) {
                     font-weight: 300;
+                    margin-right: 4px;
                 }
 
                 &:nth-child(2) {
@@ -89,7 +94,7 @@
         &__title {
             color: #15B7B9;
             font-weight: 600;
-            font-size: 18px;
+            font-size: 22px;
             margin-top: 6px;
             
             a{
@@ -101,8 +106,8 @@
         &__description {
             margin-top: 4px;
             font-weight: 300;
-            font-size: 12px;
-            line-height: 16px;
+            font-size: 14px;
+            line-height: 20px;
         }
         
         @media screen and (min-width: 1200px) {

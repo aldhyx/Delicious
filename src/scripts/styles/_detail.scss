@@ -132,6 +132,14 @@
 
 .review{
     background-color: #fff;
+
+    @media screen and (min-width: 768px) {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    @media screen and (min-width: 1200px) {
+        max-width: 1115px;
+    }
     &-header{
         margin-top:20px;
         padding-top:20px;

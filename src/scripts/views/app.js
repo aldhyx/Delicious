@@ -3,12 +3,20 @@ import UrlParser from '../routes/url-parser';
 import DrawerInitiator from '../utils/drawer-initiator';
 
 class App {
-  constructor({ button, closeButton, drawer, content, navBackground }) {
+  constructor({
+    button,
+    closeButton,
+    drawer,
+    content,
+    navBackground,
+    navList,
+  }) {
     this._button = button;
     this._closeButton = closeButton;
     this._drawer = drawer;
     this._content = content;
     this._navBackground = navBackground;
+    this._navList = navList;
 
     this._initialAppShell();
   }
@@ -19,6 +27,7 @@ class App {
       closeButton: this._closeButton,
       drawer: this._drawer,
       navBackground: this._navBackground,
+      navList: this._navList,
     });
   }
 

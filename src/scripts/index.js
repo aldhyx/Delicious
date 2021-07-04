@@ -9,6 +9,7 @@ const app = new App({
   drawer: document.querySelector('#drawer'),
   content: document.querySelector('#mainContent'),
   navBackground: document.querySelector('#navBackground'),
+  navList: document.querySelector('.nav__list'),
 });
 
 window.addEventListener('hashchange', () => {

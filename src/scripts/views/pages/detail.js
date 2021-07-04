@@ -7,7 +7,7 @@ import { createRestaurantDetail } from '../templates/template-creator';
 const Detail = {
   async render() {
     return `
-    <main class="loaderContainer"></main>
+    <div class="loaderContainer"></div>
     <main id="restaurantContainer"></main>
     <aside id="reviewsContainer"></aside>
     <aside id="likeButtonContainer"></aside>
@@ -26,13 +26,18 @@ const Detail = {
 
     LikeButtonInitiator.init({
       likeButtonContainer: document.querySelector('#likeButtonContainer'),
-      restaurant: {},
+      restaurant: {
+        id: detailRestaurants.id,
+        name: detailRestaurants.name,
+        address: detailRestaurants.address,
+        city: detailRestaurants.city,
+        description: detailRestaurants.description,
+        menus: detailRestaurants.menus,
+        rating: detailRestaurants.rating,
+        pictureId: detailRestaurants.pictureId,
+        categories: detailRestaurants.categories,
+      },
     });
-
-    console.log(
-      '🚀 ~ file: detail.js ~ line 21 ~ afterRender ~ detailRestaurants',
-      detailRestaurants
-    );
   },
 };
 

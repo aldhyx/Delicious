@@ -8,7 +8,7 @@ const CONFIG = {
   DATABASE_NAME: 'delicious-catalogue-database',
   DATABASE_VERSION: 1,
   OBJECT_STORE_NAME: 'restaurant',
-  WEB_SOCKET_SERVER: '', // TODO: what is the socket url
+  WEB_SOCKET_SERVER: 'wss://movies-feed.dicoding.dev',
 };
 
 export default CONFIG;

@@ -28,7 +28,7 @@
     grid-template-columns: 1fr;
     gap: 24px;
     padding: 0 24px;
-    margin-bottom: 48px;
+    padding-bottom: 48px;
 
     @media screen and (min-width: 768px) {
         grid-template-columns: 1fr 1fr;

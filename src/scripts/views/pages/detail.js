@@ -1,5 +1,6 @@
 import DeliciousSources from '../../data/restourant-sources';
 import UrlParser from '../../routes/url-parser';
+import LikeButtonInitiator from '../../utils/like-button-initiator';
 import LoaderHelper from '../../utils/loader-helper';
 import { createRestaurantDetail } from '../templates/template-creator';
 
@@ -9,6 +10,7 @@ const Detail = {
     <main class="loaderContainer"></main>
     <main id="restaurantContainer"></main>
     <aside id="reviewsContainer"></aside>
+    <aside id="likeButtonContainer"></aside>
     `;
   },
 
@@ -21,6 +23,11 @@ const Detail = {
     const detailRestaurants = await DeliciousSources.getDetail(id);
     LoaderHelper.removeLoader({ containerLoader });
     containerMain.innerHTML += createRestaurantDetail(detailRestaurants);
+
+    LikeButtonInitiator.init({
+      likeButtonContainer: document.querySelector('#likeButtonContainer'),
+      restaurant: {},
+    });
 
     console.log(
       '🚀 ~ file: detail.js ~ line 21 ~ afterRender ~ detailRestaurants',

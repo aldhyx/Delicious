@@ -2,7 +2,13 @@ import DeliciousSources from '../../data/restourant-sources';
 import UrlParser from '../../routes/url-parser';
 import LikeButtonInitiator from '../../utils/like-button-initiator';
 import LoaderHelper from '../../utils/loader-helper';
-import { createRestaurantDetail } from '../templates/template-creator';
+import ReviewsFormInitiator from '../../utils/reviews-form-initiator';
+import {
+  createRestaurantDetail,
+  createReviewsFormTemplate,
+  createReviewsHeaderTemplate,
+  createReviewsTemplate,
+} from '../templates/template-creator';
 
 const Detail = {
   async render() {
@@ -21,8 +27,30 @@ const Detail = {
 
     const { id } = UrlParser.parseActiveUrlWithoutCombiner();
     const detailRestaurants = await DeliciousSources.getDetail(id);
+
     LoaderHelper.removeLoader({ containerLoader });
     containerMain.innerHTML += createRestaurantDetail(detailRestaurants);
+    containerMain.innerHTML += createReviewsHeaderTemplate(
+      detailRestaurants.id
+    );
+
+    const reviews =
+      detailRestaurants.customerReviews.length > 0
+        ? detailRestaurants.customerReviews.reverse().slice(0, 2)
+        : [];
+
+    containerMain.innerHTML += createReviewsTemplate({
+      id: detailRestaurants.id,
+      reviews,
+    });
+
+    containerMain.innerHTML += createReviewsFormTemplate();
+
+    const reviewFormContainer = document.querySelector('#review-form');
+    ReviewsFormInitiator.init({
+      reviewFormContainer,
+      id: detailRestaurants.id,
+    });
 
     LikeButtonInitiator.init({
       likeButtonContainer: document.querySelector('#likeButtonContainer'),

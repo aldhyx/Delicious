@@ -26,7 +26,7 @@
             justify-content: space-between;
             align-items: center;
             margin-top: 8px;
-            margin-bottom: 14px;
+            margin-bottom: 18px;
         }
     }
 
@@ -85,8 +85,9 @@
     &__desc {
         font-weight: normal;
         font-size: 14px;
-        line-height: 20px;
+        line-height: 23px;
         color: #232322;
+        padding-bottom: 20px;
     }
 
     &-lists {
@@ -126,6 +127,105 @@
 #restaurantContainer {
     @media screen and (min-width: 1200px) {
         padding-top: 25px;
+    }
+}
+
+.review{
+    background-color: #fff;
+    &-header{
+        margin-top:20px;
+        padding-top:20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        
+        >a{
+            padding: 14px 16px;
+            color: #15B7B9;
+            text-decoration: none;
+            text-transform: capitalize;
+            font-weight: bold;
+            font-size: 14px;
+        }
+    }
+    &-list{
+        list-style: none;
+        padding: 0;
+    }
+    &-item{
+        padding: 10px 16px;
+        &:not(:last-child){
+            border-bottom: 1px solid #F5F5F5;
+        }
+    }
+
+    &-name{
+        margin-bottom: 4px;
+        span{
+            &:nth-child(1) {
+                font-weight: normal;
+                font-size: 10px;
+                line-height: 14px;
+                letter-spacing: 0.1em;
+                color: #6D6D6D;
+            }
+            &:nth-child(2) {
+                font-weight: 600;
+                font-size: 12px;
+                line-height: 16px;
+                letter-spacing: 0.1em;
+                color: #232323;
+            }
+        }
+    }
+
+    &-content{
+        font-weight: normal;
+        font-size: 12px;
+        line-height: 16px;
+        letter-spacing: 0.1em;
+        color: #232323;
+    }
+
+    &-footer{
+        width: 100%;
+        padding: 10px 16px;
+        padding-bottom: 40px;
+        form{
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            width: 100%;
+        }
+
+        textarea {
+            border: 1px solid #F5F5F5;
+            background: #F5F5F5;
+            border-radius: 5px;
+            margin-right: 14px;
+            width: 100%;
+            resize: none;
+            padding: 16px;
+            &:focus{
+                outline: none;
+                background-color: #fff;
+                border: 1px solid #F5F5F5;
+            }
+        }
+
+        button{
+            background: #15B7B9;
+            border-radius: 5px;
+            padding: 18px 16px;
+            color: #fff;
+            border: none;
+            font-weight: bold;
+            font-size: 12px;
+            line-height: 16px;
+            letter-spacing: 0.1em;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
     }
 }
 

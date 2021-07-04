@@ -7,8 +7,8 @@ const createRestaurantCatalogueTemplate = (restaurant) => `
         <a href="/#/detail/${restaurant.id}">
             <img
             src="${
-              CONFIG.BASE_IMAGE_URL_MEDIUM + restaurant.pictureId
-              || 'https://picsum.photos/id/666/800/450?grayscale'
+              CONFIG.BASE_IMAGE_URL_MEDIUM + restaurant.pictureId ||
+              'https://picsum.photos/id/666/800/450?grayscale'
             }" 
             alt="${restaurant.name || ''}"
             class="post-item__thumbnail">
@@ -55,8 +55,8 @@ const createRestaurantDetail = (restaurant) => `
     <div class="restaurant-header">
         <div class="class="restaurant-header__bottom">
             <img src="${
-              CONFIG.BASE_IMAGE_URL_MEDIUM + restaurant.pictureId
-              || 'https://picsum.photos/id/666/800/450?grayscale'
+              CONFIG.BASE_IMAGE_URL_MEDIUM + restaurant.pictureId ||
+              'https://picsum.photos/id/666/800/450?grayscale'
             }" alt="${restaurant.name}" class="restaurant__img"/>
             <p class="restaurant__city">
             ${restaurant.city}
@@ -123,10 +123,58 @@ const createLikedButtonTemplate = () => `
   </button>
 `;
 
+const createReviewsHeaderTemplate = (id) => `
+<section class="review">
+    <div class="review-header">
+        <h3 class="section__title">Ulasan Pengunjung</h3>
+        <a href="/#/detail/${id}/reviews">Lihat Semua</a>
+    </div>
+</section>
+`;
+
+const createReviewsFormTemplate = () => `
+<section class="review">
+    <div class="review-footer">
+        <form id="review-form" action="post">
+            <textarea name="review" required placeholder="Ketik Ulasan..."></textarea>
+            <button type="submit">Kirim 🚀</button>
+        </form>
+    </div>
+</section>
+`;
+
+const createReviewsTemplate = ({ reviews = [] }) => `
+<section class="review">
+    <ul class="review-list">
+    ${
+      reviews.length > 0 &&
+      reviews
+        .map(
+          (any) => `
+            <li class="review-item">
+                <h4 class="review-name">
+                    <span>Oleh</span>
+                    <span>${any.name}</span>
+                </h4>
+                <p class="review-content">
+                    ${any.review}
+                </p>
+            </li>
+        `
+        )
+        .join('')
+    }
+    </ul>
+</section>
+`;
+
 export {
   createRestaurantCatalogueTemplate,
   createLoader,
   createRestaurantDetail,
   createLikeButtonTemplate,
   createLikedButtonTemplate,
+  createReviewsTemplate,
+  createReviewsHeaderTemplate,
+  createReviewsFormTemplate,
 };

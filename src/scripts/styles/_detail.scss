@@ -1,12 +1,39 @@
-.restaurant{
+.restaurant {
     background-color: #fff;
     padding: 16px;
     width: 100%;
 
-    &-header{
+    @media screen and (min-width: 768px) {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 300px auto;
+    }
+
+    @media screen and (min-width: 1200px) {
+        max-width: 1115px;
+        grid-template-columns: 400px auto;
+        padding: 50px;
+        padding-bottom: 20px;
+    }
+
+    &-header {
         position: relative;
         width: 100%;
-        
+
+        &__top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 8px;
+            margin-bottom: 14px;
+        }
+    }
+
+    &-body {
+        @media screen and (min-width: 768px) {
+            padding-left: 25px;
+        }
     }
 
     &__img {
@@ -31,25 +58,15 @@
         text-transform: uppercase;
     }
 
-    &-body{
-        &__top{
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 8px;
-            margin-bottom: 14px;
-        }
-    }
-
-    &__rating{
+    &__rating {
         font-weight: normal;
         font-size: 12px;
         line-height: 16px;
         letter-spacing: 0.1em;
         color: #232322;
     }
-    
-    &__address{
+
+    &__address {
         font-weight: normal;
         font-size: 10px;
         line-height: 14px;
@@ -57,7 +74,7 @@
         color: #6D6D6D;
     }
 
-    &__title{
+    &__title {
         color: #F57170;
         font-weight: 600;
         font-size: 22px;
@@ -65,30 +82,54 @@
         letter-spacing: 0.08em;
     }
 
-    &__desc{
+    &__desc {
         font-weight: normal;
         font-size: 14px;
         line-height: 20px;
         color: #232322;
     }
 
-    &-lists{
+    &-lists {
         list-style: none;
         padding: none;
         background-color: #fff;
-        &__item{
+
+        &__item {
             padding: 14px 20px;
             color: #232322;
             font-weight: normal;
             font-size: 14px;
-            &:not(:last-child){
+
+            &:not(:last-child) {
                 border-bottom: 1px solid #F5F5F5;
             }
         }
     }
+
+    &-menu {
+        @media screen and (min-width: 768px) {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            padding-bottom: 60px;
+        }
+
+        @media screen and (min-width: 1200px) {
+            max-width: 1115px;
+        }
+    }
+
 }
 
-.section__title{
+#restaurantContainer {
+    @media screen and (min-width: 1200px) {
+        padding-top: 25px;
+    }
+}
+
+.section__title {
     font-weight: bold;
     font-size: 14px;
     line-height: 19px;

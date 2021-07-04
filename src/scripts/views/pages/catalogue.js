@@ -5,6 +5,12 @@ import { createRestaurantCatalogueTemplate } from '../templates/template-creator
 const Catalogue = {
   async render() {
     return `
+    <section class="hero">
+        <div class="hero__inner">
+            <h1 class="hero__title">Delicious</h1>
+            <p class="hero__tagline">Resto & Cafe</p>
+        </div>
+    </section>
     <section class="best-pick" aria-label="Konten Utama">
         <h2 class="best-pick__label">
             <span>Best</span>

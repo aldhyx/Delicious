@@ -49,4 +49,63 @@ const createLoader = () => `
     <span>Sedang memuat data...</span>
 </div>
 `;
-export { createRestaurantCatalogueTemplate, createLoader };
+
+const createRestaurantDetail = (restaurant) => `
+<section class="restaurant">
+    <div class="restaurant-header">
+        <img src="${
+          CONFIG.BASE_IMAGE_URL_MEDIUM + restaurant.pictureId ||
+          'https://picsum.photos/id/666/800/450?grayscale'
+        }" alt="${restaurant.name}" class="restaurant__img"/>
+        <p class="restaurant__city">
+        ${restaurant.city}
+        </p>
+    </div>
+    <div class="restaurant-body">
+        <div class="restaurant-body__top">
+            <p class="restaurant__rating">
+                <span>⭐</span>
+                <span>${restaurant.rating} / 4</span>
+            </p>
+            <p class="restaurant__address">
+                <span>${restaurant.address}</span>
+                <span>📍</span>
+            </p>
+        </div>
+        <article class="restaurant-body__bottom">
+            <h2 class="restaurant__title">${restaurant.name}</h2>
+            <p class="restaurant__desc">${restaurant.description}</p>
+        </article>
+    </div>
+</section>
+
+<section class="restaurant-food">
+    <h3 class="section__title">
+        <span>🍜</span>
+        <span>Makanan Tersedia</span>
+    </h3>
+    <ul class="restaurant-lists">
+        ${restaurant.menus.foods
+          .map((any) => `<li class="restaurant-lists__item">${any.name}</li>`)
+          .join('')}
+    </ul>
+</section>
+
+<section class="restaurant-drink">
+    <h3 class="section__title">
+        <span>🍹</span>
+        <span>Minuman Tersedia</span>
+    </h3>
+    <ul class="restaurant-lists">
+        ${restaurant.menus.drinks
+          .map((any) => `<li class="restaurant-lists__item">${any.name}</li>`)
+          .join('')}
+    </ul>
+</section>
+`;
+
+export {
+  createRestaurantCatalogueTemplate,
+  createLoader,
+  createRestaurantDetail,
+};

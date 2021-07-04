@@ -4,13 +4,15 @@ const createRestaurantCatalogueTemplate = (restaurant) =>
   `
 <article class="post-item" tabindex="0" >
     <div class="post-item__header">
-        <img
+        <a href="/#/detail/${restaurant.id}">
+            <img
             src="${
               CONFIG.BASE_IMAGE_URL_MEDIUM + restaurant.pictureId ||
               'https://picsum.photos/id/666/800/450?grayscale'
             }" 
             alt="${restaurant.name || ''}"
             class="post-item__thumbnail">
+        </a>
         <div class="post-item__city">
             ${restaurant.city || ''}
         </div>
@@ -25,7 +27,9 @@ const createRestaurantCatalogueTemplate = (restaurant) =>
         </p>
 
         <h3 class="post-item__title">
-            ${restaurant.name || ''}
+            <a href="/#/detail/${restaurant.id}">
+                ${restaurant.name || ''}
+            </a>
         </h3>
 
         <p class="post-item__description">

@@ -1,6 +1,6 @@
 import FavoriteRestaurantIdb from '../../data/database';
 import LoaderHelper from '../../utils/loader-helper';
-import { createRestaurantCatalogueTemplate } from '../templates/template-creator';
+import { createCatalogueTemplate } from '../templates/template-creator';
 
 const Favorite = {
   async render() {
@@ -31,7 +31,7 @@ const Favorite = {
 
     restaurants.map(
       // eslint-disable-next-line no-return-assign
-      (any) => (containerMain.innerHTML += createRestaurantCatalogueTemplate(any)),
+      (any) => (containerMain.innerHTML += createCatalogueTemplate(any)),
     );
   },
 };

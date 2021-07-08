@@ -1,7 +1,7 @@
 /* eslint-disable comma-dangle */
 import CONFIG from '../../globals/config';
 
-const createRestaurantCatalogueTemplate = (restaurant) => `
+const createCatalogueTemplate = (restaurant) => `
 <article class="post-item" tabindex="0" >
     <div class="post-item__header">
         <a href="/#/detail/${restaurant.id}">
@@ -168,8 +168,22 @@ const createReviewsTemplate = ({ reviews = [] }) => `
 </section>
 `;
 
+const createErrorTemplate = (errMessage) => `
+<div class="message message-error">
+    <h6 class="message-header">
+        <i class="fas fa-exclamation-triangle"></i>
+        <span>
+            Peringatan
+        </span>
+    </h6>
+    <span>
+    ${errMessage || 'Mohon maaf, Terjadi kesalahan pada sistem kami.'}
+    </span>
+</div>
+`;
+
 export {
-  createRestaurantCatalogueTemplate,
+  createCatalogueTemplate,
   createLoader,
   createRestaurantDetail,
   createLikeButtonTemplate,
@@ -177,4 +191,5 @@ export {
   createReviewsTemplate,
   createReviewsHeaderTemplate,
   createReviewsFormTemplate,
+  createErrorTemplate,
 };

@@ -2,9 +2,13 @@ import API from '../globals/api';
 
 class DeliciousSources {
   static async getList() {
-    const response = await fetch(API.GET_LIST);
-    const responseJson = await response.json();
-    return responseJson.restaurants;
+    try {
+      const response = await fetch(API.GET_LIST);
+      const responseJson = await response.json();
+      return Promise.resolve(responseJson.restaurants);
+    } catch (error) {
+      return Promise.reject(error);
+    }
   }
 
   static async getDetail(id) {

@@ -100,3 +100,32 @@ main{
     align-items: center;
     justify-content: center;
 }
+
+/*
+   Message
+*/
+.message {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    padding: 16px;
+    background: white;
+    &-error {
+        border-radius: 5px;
+        &>.message-header{
+            margin-bottom: 8px;
+            &>i,
+            &>span {
+                color: rgb(233, 64, 64);
+                font-size: 14px;
+            }
+            i{
+                margin-right: 5px;
+            }
+        }
+        span {
+            font-size: 16px;
+            color: #414141;
+        }
+    }
+}

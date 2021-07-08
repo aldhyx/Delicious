@@ -1,6 +1,9 @@
 import DeliciousSources from '../../data/restourant-sources';
 import LoaderHelper from '../../utils/loader-helper';
-import { createRestaurantCatalogueTemplate } from '../templates/template-creator';
+import {
+  createCatalogueTemplate,
+  createErrorTemplate,
+} from '../templates/template-creator';
 
 const Catalogue = {
   async render() {
@@ -26,14 +29,24 @@ const Catalogue = {
   async afterRender() {
     const containerPosts = document.querySelector('#renderPosts');
     const containerLoader = document.querySelector('.loader');
-    LoaderHelper.renderLoader({ containerLoader });
 
-    const restaurants = await DeliciousSources.getList();
-    LoaderHelper.removeLoader({ containerLoader });
+    try {
+      LoaderHelper.renderLoader({ containerLoader });
 
-    restaurants.forEach((restaurant) => {
-      containerPosts.innerHTML += createRestaurantCatalogueTemplate(restaurant);
-    });
+      const restaurants = await DeliciousSources.getList();
+      LoaderHelper.removeLoader({ containerLoader });
+      restaurants.forEach((restaurant) => {
+        containerPosts.innerHTML += createCatalogueTemplate(restaurant);
+      });
+    } catch (e) {
+      let errMessage = e.message || e;
+      if (typeof errMessage === 'object') {
+        errMessage = JSON.stringify(errMessage);
+      }
+
+      containerPosts.innerHTML = createErrorTemplate(errMessage);
+      LoaderHelper.removeLoader({ containerLoader });
+    }
   },
 };
 

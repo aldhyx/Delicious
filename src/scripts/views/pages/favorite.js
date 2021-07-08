@@ -30,6 +30,7 @@ const Favorite = {
     }
 
     restaurants.map(
+      // eslint-disable-next-line no-return-assign
       (any) => (containerMain.innerHTML += createRestaurantCatalogueTemplate(any)),
     );
   },

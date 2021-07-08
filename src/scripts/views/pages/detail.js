@@ -31,11 +31,10 @@ const Detail = {
     LoaderHelper.removeLoader({ containerLoader });
     containerMain.innerHTML += createRestaurantDetail(detailRestaurants);
     containerMain.innerHTML += createReviewsHeaderTemplate(
-      detailRestaurants.id
+      detailRestaurants.id,
     );
 
-    const reviews =
-      detailRestaurants.customerReviews.length > 0
+    const reviews = detailRestaurants.customerReviews.length > 0
         ? detailRestaurants.customerReviews.reverse().slice(0, 2)
         : [];
 

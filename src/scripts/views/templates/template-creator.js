@@ -7,8 +7,8 @@ const createRestaurantCatalogueTemplate = (restaurant) => `
         <a href="/#/detail/${restaurant.id}">
             <img
             src="${
-              CONFIG.BASE_IMAGE_URL_MEDIUM + restaurant.pictureId ||
-              'https://picsum.photos/id/666/800/450?grayscale'
+              CONFIG.BASE_IMAGE_URL_MEDIUM + restaurant.pictureId
+              || 'https://picsum.photos/id/666/800/450?grayscale'
             }" 
             alt="${restaurant.name || ''}"
             class="post-item__thumbnail">
@@ -55,8 +55,8 @@ const createRestaurantDetail = (restaurant) => `
     <div class="restaurant-header">
         <div class="class="restaurant-header__bottom">
             <img src="${
-              CONFIG.BASE_IMAGE_URL_MEDIUM + restaurant.pictureId ||
-              'https://picsum.photos/id/666/800/450?grayscale'
+              CONFIG.BASE_IMAGE_URL_MEDIUM + restaurant.pictureId
+              || 'https://picsum.photos/id/666/800/450?grayscale'
             }" alt="${restaurant.name}" class="restaurant__img"/>
             <p class="restaurant__city">
             ${restaurant.city}
@@ -147,8 +147,8 @@ const createReviewsTemplate = ({ reviews = [] }) => `
 <section class="review">
     <ul class="review-list">
     ${
-      reviews.length > 0 &&
-      reviews
+      reviews.length > 0
+      && reviews
         .map(
           (any) => `
             <li class="review-item">

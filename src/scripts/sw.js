@@ -6,14 +6,14 @@ import CacheHelper from './utils/cache-helper';
 const { assets } = global.serviceWorkerOption;
 
 self.addEventListener('install', (event) => {
-  console.log('Installing Service Worker ...');
+  // console.log('Installing Service Worker ...');
 
   // Caching App Shell Resource
   event.waitUntil(CacheHelper.cachingAppShell([...assets, './']));
 });
 
 self.addEventListener('activate', (event) => {
-  console.log('Activating Service Worker ...');
+  // console.log('Activating Service Worker ...');
 
   // Delete old caches
   event.waitUntil(CacheHelper.deleteOldCache());

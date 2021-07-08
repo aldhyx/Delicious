@@ -19,6 +19,7 @@ const ReviewsFormInitiator = {
         review: formData.get('review'),
       };
 
+      // eslint-disable-next-line no-param-reassign
       event.target[0].value = '';
       this._postReview(jsonData);
     });
@@ -29,8 +30,7 @@ const ReviewsFormInitiator = {
 
     const reviewContainer = document.querySelector('.review-list');
 
-    const reviews =
-      res.customerReviews.length > 0
+    const reviews = res.customerReviews.length > 0
         ? res.customerReviews.reverse().slice(0, 2)
         : [];
     reviewContainer.innerHTML = '';

@@ -2,4 +2,4 @@
 /.vscode
 /package-lock.json
 /dist
-/delicious-app.zip
+/*.zip

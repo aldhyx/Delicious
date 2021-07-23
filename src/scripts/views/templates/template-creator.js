@@ -6,12 +6,12 @@ const createCatalogueTemplate = (restaurant) => `
     <div class="post-item__header">
         <a href="/#/detail/${restaurant.id}">
             <img
-            src="${
+            data-src="${
               CONFIG.BASE_IMAGE_URL_MEDIUM + restaurant.pictureId
               || 'https://picsum.photos/id/666/800/450?grayscale'
             }" 
             alt="${restaurant.name || ''}"
-            class="post-item__thumbnail">
+            class="lazyload post-item__thumbnail">
         </a>
         <div class="post-item__city">
             ${restaurant.city || ''}

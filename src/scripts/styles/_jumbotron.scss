@@ -5,12 +5,16 @@
     min-height: 380px;
     width: 100%;
     text-align: center;
-    background: url('../../public/images/heros/hero-image_2.jpg');
+    background-image: url('../../public/images/heros/hero-image-small.jpg');
     background-position: center;
     background-color: rgb(189, 189, 189);
     background-attachment: fixed;
     background-size: cover;
     background-repeat: no-repeat;
+    
+    @media screen and (min-width: 768px) {
+        background-image: url('../../public/images/heros/hero-image-large.jpg');
+    }
 }
 
 .hero__inner {

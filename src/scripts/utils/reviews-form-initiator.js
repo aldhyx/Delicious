@@ -9,14 +9,17 @@ const ReviewsFormInitiator = {
   },
 
   _onSubmit() {
+    // eslint-disable-next-line consistent-return
     this._form.addEventListener('submit', (event) => {
       event.preventDefault();
       const formData = new FormData(event.target);
+      const review = formData.get('review').trimStart();
+      if (!review) return event.target[0].focus();
 
       const jsonData = {
         id: this._id,
         name: 'aldhyyy',
-        review: formData.get('review'),
+        review,
       };
 
       // eslint-disable-next-line no-param-reassign

@@ -4,6 +4,10 @@ Feature('Liking Restaurant');
 
 Scenario('like unlike one restaurant', async ({ I }) => {
   I.amOnPage('/');
+  I.amOnPage('/#/favorite');
+  I.seeElement('.post-item__not__found');
+
+  I.amOnPage('/');
   I.seeElement('.post-item .post-item__title a');
   const firstFilm = locate('.post-item .post-item__title a').first();
   const firstFilmTitle = await I.grabTextFrom(firstFilm);
@@ -21,5 +25,6 @@ Scenario('like unlike one restaurant', async ({ I }) => {
   I.seeElement('#likeButton');
   I.click('#likeButton');
   I.amOnPage('/#/favorite');
-  I.dontSeeElement('.post-item');
+  I.seeElement('.post-item__not__found');
+  I.dontSeeElement('.post-item');  
 });

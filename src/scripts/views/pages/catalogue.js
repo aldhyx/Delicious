@@ -20,7 +20,7 @@ const Catalogue = {
             <span>Pick</span>
         </h2>
         <div class="posts" id="renderPosts">
-          ${createSkeletonCatalogueTemplate(20)}
+          ${createSkeletonCatalogueTemplate(3)}
         </div>
     </section>
     `;

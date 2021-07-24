@@ -1,14 +1,11 @@
 const path = require('path');
 const { merge } = require('webpack-merge');
 const common = require('./webpack.common');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 module.exports = merge(common, {
   mode: 'production',
-  entry: path.resolve(__dirname, 'src/scripts/index.js'),
-  output: {
-    filename: '[name].bundle.js',
-    path: path.resolve(__dirname, 'dist'),
-  },
   optimization: {
     splitChunks: {
       chunks: 'all',
@@ -48,4 +45,10 @@ module.exports = merge(common, {
       },
     ],
   },
+  plugins: [
+    new CleanWebpackPlugin(),
+    new BundleAnalyzerPlugin({
+      openAnalyzer: false,
+    }),
+  ],
 });

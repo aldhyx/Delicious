@@ -17,7 +17,6 @@ Scenario('like unlike one restaurant', async ({ I }) => {
   const likedFilmTitle = await I.grabTextFrom('.post-item .post-item__title a');
   assert.strictEqual(firstFilmTitle, likedFilmTitle);
 
-  I.seeElement('.post-item .post-item__title a');
   I.click(firstFilm);
   I.seeElement('#likeButton');
   I.click('#likeButton');

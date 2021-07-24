@@ -8,20 +8,26 @@
 
     &__inner {
         width: 100%;
-        padding: 16px;
+        padding: 8px 16px;
         display: flex;
         justify-content: space-between;
         align-items: center;
 
-@media screen and (min-width: 1200px) {
-    max-width: 1200px;
-    margin: 0 auto;
-}
+        @media screen and (min-width: 1200px) {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
     }
 
     &__logo {
-        min-width: 110px;
+        width: 109px;
+        height: 32px;
         object-fit: contain;
+
+        @media screen and (min-width: 1200px) {
+        width: 136px;
+        height: 60px;
+        }
     }
 
 }

@@ -22,9 +22,10 @@ body {
     background-color: #fff;
 }
 
-main{
+main {
     background: #F5F5F5;
 }
+
 .skip-link {
     position: absolute;
     top: -40px;
@@ -35,10 +36,11 @@ main{
     z-index: 100;
     font-weight: 600;
 
-    &:focus{
-    top: 0px;
+    &:focus {
+        top: 0px;
     }
 }
+
 /*
 * Loader
 */
@@ -69,20 +71,23 @@ main{
 * Details
 */
 @import './detail';
+
 /*
 * Footer
 */
-.copyright{
+.copyright {
     padding: 40px;
     background-color: #f2f2f2;
-    &__text{
+
+    &__text {
         font-size: 12px;
         text-align: center;
         color: #5C5C5C;
     }
 }
+
 /*
-   Like
+* Like
 */
 .like {
     font-size: 18px;
@@ -102,7 +107,7 @@ main{
 }
 
 /*
-   Message
+* Message
 */
 .message {
     display: flex;
@@ -110,22 +115,57 @@ main{
     flex-direction: column;
     padding: 16px;
     background: white;
+
     &-error {
         border-radius: 5px;
-        &>.message-header{
+
+        &>.message-header {
             margin-bottom: 8px;
+
             &>i,
             &>span {
                 color: rgb(233, 64, 64);
                 font-size: 14px;
             }
-            i{
+
+            i {
                 margin-right: 5px;
             }
         }
+
         span {
             font-size: 16px;
             color: #414141;
         }
     }
+}
+
+/*
+* Search
+*/
+.search {
+    width: 100%;
+    padding: 24px;
+
+    input.search-input {
+        width: 100%;
+        border-radius: 30px;
+        border: 1px solid #fff;
+        background-color: #fff;
+        height: 44px;
+        padding: 0 16px;
+
+        &:focus {
+            outline: none;
+        }
+
+    }
+
+@media screen and (min-width: 1200px) {
+    margin: 0 auto;
+    width: 1200px;
+    input.search-input {
+        text-align: center;
+    }
+}
 }

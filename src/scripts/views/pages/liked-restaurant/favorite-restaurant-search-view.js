@@ -10,7 +10,9 @@ class FavoriteRestaurantSearchView {
             <span>Favorite</span>
         </h2>
     </div>
-    <input id="query" type="text">
+    <div class="search">
+      <input id="query" type="text" class="search-input" placeholder="Cari restoran & cafe" autocomplete="off">
+    </div>
     <div class="loaderContainer"></div>
     <main class="posts" id="favoriteContainer">
     </main>
@@ -32,7 +34,7 @@ class FavoriteRestaurantSearchView {
     if (restaurants.length) {
       html = restaurants.reduce(
         (carry, movie) => carry.concat(createCatalogueTemplate(movie)),
-        '',
+        ''
       );
     } else {
       html = this._getEmptyRestaurantTemplate();

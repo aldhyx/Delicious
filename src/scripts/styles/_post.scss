@@ -111,6 +111,12 @@
             font-size: 14px;
             line-height: 20px;
         }
+
+        &__not__found{
+            width: 100%;
+            text-align: center;
+            padding-bottom: 300px;
+        }
         
         @media screen and (min-width: 1200px) {
             &__city {
@@ -130,6 +136,10 @@
                 margin-top: 8px;
                 font-size: 16px;
                 line-height: 24px;
+            }
+
+            &__not__found {
+                width: 1200px;
             }
         }
     }

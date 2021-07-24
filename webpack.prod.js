@@ -49,6 +49,7 @@ module.exports = merge(common, {
     new CleanWebpackPlugin(),
     new BundleAnalyzerPlugin({
       openAnalyzer: false,
+      analyzerMode: 'json',
     }),
   ],
 });

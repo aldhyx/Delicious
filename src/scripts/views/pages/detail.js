@@ -1,7 +1,7 @@
 import FavoriteRestaurantIdb from '../../data/database';
-import DeliciousSources from '../../data/restourant-sources';
+import DeliciousSources from '../../data/restaurant-sources';
 import UrlParser from '../../routes/url-parser';
-import LikeButtonInitiator from '../../utils/like-button-initiator';
+import LikeButtonPresenter from '../../utils/like-button-presenter';
 import LoaderHelper from '../../utils/loader-helper';
 import ReviewsFormInitiator from '../../utils/reviews-form-initiator';
 import {
@@ -49,7 +49,7 @@ const Detail = {
     const reviewFormContainer = document.querySelector('#review-form');
     ReviewsFormInitiator.init({ reviewFormContainer, id: detailRestaurants.id });
 
-    LikeButtonInitiator.init({
+    LikeButtonPresenter.init({
       likeButtonContainer: document.querySelector('#likeButtonContainer'),
       favoriteRestaurants: FavoriteRestaurantIdb,
       restaurant: {

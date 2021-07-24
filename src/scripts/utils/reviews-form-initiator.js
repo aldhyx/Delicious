@@ -1,4 +1,4 @@
-import DeliciousSources from '../data/restourant-sources';
+import DeliciousSources from '../data/restaurant-sources';
 import { createReviewsTemplate } from '../views/templates/template-creator';
 
 const ReviewsFormInitiator = {

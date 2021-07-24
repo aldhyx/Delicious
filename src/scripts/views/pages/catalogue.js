@@ -1,4 +1,4 @@
-import DeliciousSources from '../../data/restourant-sources';
+import DeliciousSources from '../../data/restaurant-sources';
 import LoaderHelper from '../../utils/loader-helper';
 import {
   createCatalogueTemplate,

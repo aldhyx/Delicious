@@ -1,38 +1,19 @@
+/* eslint-disable no-new */
 import FavoriteRestaurantIdb from '../../data/database';
-import LoaderHelper from '../../utils/loader-helper';
-import { createCatalogueTemplate } from '../templates/template-creator';
+import FavoriteRestaurantSearchPresenter from './liked-restaurant/favorite-restaurant-search-presenter';
+import FavoriteRestaurantSearchView from './liked-restaurant/favorite-restaurant-search-view';
+import FavoriteRestaurantShowPresenter from './liked-restaurant/favorite-restaurant-show-presenter';
+
+const view = new FavoriteRestaurantSearchView();
 
 const Favorite = {
   async render() {
-    return `
-    <div>
-        <h2 class="best-pick__label">
-            <span>My</span>
-            <span>Favorite</span>
-        </h2>
-    </div>
-    <div class="loaderContainer"></div>
-    <main class="posts" id="favoriteContainer">
-    </main>
-    `;
+    return view.getTemplate();
   },
 
   async afterRender() {
-    const containerMain = document.querySelector('#favoriteContainer');
-    const containerLoader = document.querySelector('.loaderContainer');
-    LoaderHelper.renderLoader({ containerLoader });
-
-    const restaurants = await FavoriteRestaurantIdb.getAllRestaurant();
-    LoaderHelper.removeLoader({ containerLoader });
-    if (!restaurants.length) {
-      // Todo: render no favorite
-      return;
-    }
-
-    restaurants.map(
-      // eslint-disable-next-line no-return-assign
-      (any) => (containerMain.innerHTML += createCatalogueTemplate(any)),
-    );
+    new FavoriteRestaurantShowPresenter({ view, favoriteRestaurants: FavoriteRestaurantIdb });
+    new FavoriteRestaurantSearchPresenter({ view, favoriteRestaurants: FavoriteRestaurantIdb });
   },
 };
 

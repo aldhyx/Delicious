@@ -8,7 +8,7 @@ const CONFIG = {
   DATABASE_NAME: 'delicious-catalogue-database',
   DATABASE_VERSION: 1,
   OBJECT_STORE_NAME: 'restaurant',
-  WEB_SOCKET_SERVER: 'wss://movies-feed.dicoding.dev',
+  WEB_SOCKET_SERVER: 'wss://stormy-badlands-06326.herokuapp.com',
 };
 
 export default CONFIG;

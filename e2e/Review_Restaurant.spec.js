@@ -4,6 +4,7 @@ Feature('Review Restaurant');
 
 Scenario('post review for one restaurant', async ({ I }) => {
   I.amOnPage('/');
+  I.wait(1);
   I.seeElement('.post-item .post-item__title a');
   const firstRestaurant = locate('.post-item .post-item__title a').first();
   I.click(firstRestaurant);
@@ -25,8 +26,9 @@ Scenario('post review for one restaurant', async ({ I }) => {
   assert.strictEqual(reviewText, myReviewText);
 });
 
-Scenario('post empty review', async ({I}) => {
+Scenario('post empty review', async ({ I }) => {
   I.amOnPage('/');
+  I.wait(1);
   I.seeElement('.post-item .post-item__title a');
   const firstRestaurant = locate('.post-item .post-item__title a').first();
   I.click(firstRestaurant);
@@ -34,7 +36,7 @@ Scenario('post empty review', async ({I}) => {
   I.seeElement('#review-form');
   I.seeElement('#review-form textarea');
   I.seeElement('#review-form button');
-  
+
   I.fillField('#review-form textarea', ' ');
   I.click('#review-form button');
 
@@ -44,4 +46,4 @@ Scenario('post empty review', async ({I}) => {
   const myReview = locate('.review-list .review-item .review-content').first();
   const myReviewText = await I.grabTextFrom(myReview);
   assert.notStrictEqual(' ', myReviewText);
-})
+});

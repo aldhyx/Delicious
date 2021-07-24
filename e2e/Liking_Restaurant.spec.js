@@ -17,6 +17,7 @@ Scenario('like a restaurant', async ({ I }) => {
   I.dontSeeElement('.post-item');
 
   I.amOnPage('/');
+  I.wait(1);
   I.seeElement('.post-item .post-item__title a');
 
   const firstFilm = locate('.post-item .post-item__title a').first();
@@ -37,6 +38,7 @@ Scenario('unlike a restaurant', async ({ I }) => {
   I.dontSeeElement('.post-item');
 
   I.amOnPage('/');
+  I.wait(1);
   I.seeElement('.post-item .post-item__title a');
 
   const firstFilm = locate('.post-item .post-item__title a').first();

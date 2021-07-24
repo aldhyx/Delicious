@@ -1,5 +1,4 @@
 import DeliciousSources from '../../data/restaurant-sources';
-import LoaderHelper from '../../utils/loader-helper';
 import {
   createCatalogueTemplate,
   createErrorTemplate,
@@ -20,7 +19,6 @@ const Catalogue = {
             <span>Best</span>
             <span>Pick</span>
         </h2>
-        <div class="loader"></div>
         <div class="posts" id="renderPosts">
           ${createSkeletonCatalogueTemplate(20)}
         </div>
@@ -30,13 +28,9 @@ const Catalogue = {
 
   async afterRender() {
     const containerPosts = document.querySelector('#renderPosts');
-    const containerLoader = document.querySelector('.loader');
 
     try {
-      LoaderHelper.renderLoader({ containerLoader });
-
       const restaurants = await DeliciousSources.getList();
-      LoaderHelper.removeLoader({ containerLoader });
       containerPosts.innerHTML = '';
       restaurants.forEach((restaurant) => {
         containerPosts.innerHTML += createCatalogueTemplate(restaurant);
@@ -49,7 +43,6 @@ const Catalogue = {
 
       containerPosts.innerHTML = '';
       containerPosts.innerHTML = createErrorTemplate(errMessage);
-      LoaderHelper.removeLoader({ containerLoader });
     }
   },
 };

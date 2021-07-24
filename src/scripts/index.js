@@ -18,7 +18,7 @@ window.addEventListener('hashchange', () => {
   app.renderPage();
 });
 
-window.addEventListener('load', () => {
+window.addEventListener('DOMContentLoaded', () => {
   app.renderPage();
   swRegister();
   // WebSocketInitiator.init(CONFIG.WEB_SOCKET_SERVER);

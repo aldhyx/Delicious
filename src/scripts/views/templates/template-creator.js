@@ -1,6 +1,31 @@
 /* eslint-disable comma-dangle */
 import CONFIG from '../../globals/config';
 
+const createSkeletonCatalogueTemplate = (count) => {
+  let template = '';
+  const desc =
+    'Lorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci alias aspernatur, assumenda aut consectetur consequuntur debitis deleniti dicta dolorem dolorum eos exercitationem labore laboriosam magni nihil, nobis obcaecati optio perspiciatis placeat qui recusandae saepe sapiente sequi totam ullam ut.';
+
+  for (let i = 0; i < count; i += 1) {
+    template += `
+    <article class="post-item" tabindex="0" >
+        <div class="post-item__header">
+            <img class="post-item__header__poster skeleton" width="100%" height="250px" src="./images/placeholder.png" alt="skeleton">
+        </div>
+
+        <div class="post-item__body">
+            <h3 class="post-item__title skeleton" style="margin-bottom: 6px;">
+                <a href="/#/" class="skeleton">Lorem ipsum dolor sit.</a>
+            </h3>
+            <p class="skeleton">${desc.substr(0, 300)}</p>
+        </div>
+    </article>
+    `;
+  }
+
+  return template;
+};
+
 const createCatalogueTemplate = (restaurant) => `
 <article class="post-item" tabindex="0" >
     <div class="post-item__header">
@@ -8,10 +33,12 @@ const createCatalogueTemplate = (restaurant) => `
             <img
             data-src="${
               CONFIG.BASE_IMAGE_URL_MEDIUM + restaurant.pictureId ||
-              'https://picsum.photos/id/666/800/450?grayscale'
+              'https://picsum.photos/id/666/800/250?grayscale'
             }" 
+            src="./images/placeholder.png"
             alt="${restaurant.name || ''}"
-            class="lazyload post-item__thumbnail">
+            class="post-item__thumbnail lazyload"
+            width="100%" height="250px">
         </a>
         <div class="post-item__city">
             ${restaurant.city || ''}
@@ -35,7 +62,7 @@ const createCatalogueTemplate = (restaurant) => `
         <p class="post-item__description">
         ${
           restaurant.description
-            ? `${restaurant.description.substr(0, 300)}...`
+            ? `${restaurant.description.substr(0, 270)}...`
             : ''
         }
         </p>
@@ -192,4 +219,5 @@ export {
   createReviewsHeaderTemplate,
   createReviewsFormTemplate,
   createErrorTemplate,
+  createSkeletonCatalogueTemplate,
 };

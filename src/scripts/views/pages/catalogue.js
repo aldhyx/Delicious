@@ -3,6 +3,7 @@ import LoaderHelper from '../../utils/loader-helper';
 import {
   createCatalogueTemplate,
   createErrorTemplate,
+  createSkeletonCatalogueTemplate,
 } from '../templates/template-creator';
 
 const Catalogue = {
@@ -21,6 +22,7 @@ const Catalogue = {
         </h2>
         <div class="loader"></div>
         <div class="posts" id="renderPosts">
+          ${createSkeletonCatalogueTemplate(20)}
         </div>
     </section>
     `;
@@ -35,6 +37,7 @@ const Catalogue = {
 
       const restaurants = await DeliciousSources.getList();
       LoaderHelper.removeLoader({ containerLoader });
+      containerPosts.innerHTML = '';
       restaurants.forEach((restaurant) => {
         containerPosts.innerHTML += createCatalogueTemplate(restaurant);
       });
@@ -44,6 +47,7 @@ const Catalogue = {
         errMessage = JSON.stringify(errMessage);
       }
 
+      containerPosts.innerHTML = '';
       containerPosts.innerHTML = createErrorTemplate(errMessage);
       LoaderHelper.removeLoader({ containerLoader });
     }
